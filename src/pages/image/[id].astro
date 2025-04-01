@@ -2,93 +2,30 @@
 // src/pages/image/[id].astro
 import { Image } from "astro:assets";
 import Layout from "../../layouts/Layout.astro";
+import { getCollection } from "astro:content";
 
 export async function getStaticPaths() {
-  // This would typically come from a data source or API
-  const images = [
-    {
-      id: 1,
-      src: "https://images.unsplash.com/photo-1601388152430-4ad0f14c0788?q=80&w=720&auto=format&fit=crop",
-      alt: "Mountain landscape",
-      title: "Mountain View",
-      description:
-        "A beautiful mountain landscape taken during sunrise, showcasing the majestic peaks against a vibrant sky.",
-      category: "Nature",
-      date: "2024-03-15",
-      photographer: "Unsplash Photographer",
-    },
-    {
-      id: 2,
-      src: "https://images.unsplash.com/photo-1477959858617-67f85cf4f1df",
-      alt: "City skyline",
-      title: "Urban Skyline",
-      description:
-        "A stunning view of the city skyline during night time, with lights illuminating the urban landscape.",
-      category: "Urban",
-      date: "2024-02-20",
-      photographer: "Unsplash Photographer",
-    },
-    {
-      id: 3,
-      src: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e",
-      alt: "Beach sunset",
-      title: "Sunset Beach",
-      description:
-        "Golden sunset over the ocean with waves gently crashing on the shore, creating a peaceful atmosphere.",
-      category: "Nature",
-      date: "2024-01-10",
-      photographer: "Unsplash Photographer",
-    },
-    {
-      id: 4,
-      src: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e",
-      alt: "Forest path",
-      title: "Forest Trail",
-      description:
-        "A serene path through the dense forest with sunlight filtering through the trees, creating beautiful light rays.",
-      category: "Nature",
-      date: "2024-03-05",
-      photographer: "Unsplash Photographer",
-    },
-    {
-      id: 5,
-      src: "https://images.unsplash.com/photo-1613643971996-c9f6e7d07000?q=80&w=720&auto=format&fit=crop",
-      alt: "Historic architecture",
-      title: "Historic Building",
-      description:
-        "An ancient architectural marvel showcasing intricate designs and craftsmanship from centuries past.",
-      category: "Architecture",
-      date: "2024-02-28",
-      photographer: "Unsplash Photographer",
-    },
-    {
-      id: 6,
-      src: "https://images.unsplash.com/photo-1546182990-dffeafbe841d",
-      alt: "Wildlife photography",
-      title: "Wildlife Moment",
-      description:
-        "A rare capture of wildlife in its natural habitat, showcasing the beauty and majesty of nature.",
-      category: "Wildlife",
-      date: "2024-01-25",
-      photographer: "Unsplash Photographer",
-    },
-  ];
+  const collection = await getCollection("gallery");
+  const images = collection.map((a) => a.data);
 
   return images.map((image) => {
+    const related = images.filter(
+      (img) => img.id !== image.id && img.category === image.category
+    );
     return {
       params: { id: image.id.toString() },
-      props: { image },
+      props: { image, related },
     };
   });
 }
 
-const { image } = Astro.props;
+const { image, related } = Astro.props;
 ---
 
 <Layout title={`${image.title} | Image Gallery`}>
   <main class="container mx-auto px-4 py-8">
     <a
-      href="/"
+      href="/astro-frame-shift/"
       class="inline-flex items-center mb-6 text-blue-600 dark:text-blue-400 hover:underline"
     >
       <svg
@@ -122,16 +59,13 @@ const { image } = Astro.props;
 
       <!-- Image information on the right -->
       <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg">
-        <div transition:name={`image-data-${image.id}`}>
-          <h1 class="text-3xl font-bold mb-4 text-gray-800 dark:text-gray-100">
-            {image.title}
-          </h1>
-          <h2
-            class="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-100"
-          >
-            {image.category}
-          </h2>
-        </div>
+        <h1 class="text-3xl font-bold mb-4 text-gray-800 dark:text-gray-100">
+          {image.title}
+        </h1>
+
+        <h2 class="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-100">
+          {image.category}
+        </h2>
 
         <div class="mb-6">
           <p class="text-gray-700 dark:text-gray-300">
@@ -174,6 +108,40 @@ const { image } = Astro.props;
           </div>
         </div>
       </div>
+    </div>
+
+    <div
+      class="masonry-container mt-10 columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-6 space-y-6"
+    >
+      {
+        related.map((image) => (
+          <div class="masonry-item break-inside-avoid mb-6">
+            <a
+              href={`/astro-frame-shift/image/${image.id}`}
+              class="group block overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 bg-white dark:bg-gray-800"
+              transition:name={`image-${image.id}`}
+            >
+              <div class="overflow-hidden">
+                <Image
+                  src={image.src}
+                  alt={image.alt}
+                  width="400"
+                  height="400"
+                  class="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105"
+                />
+              </div>
+              <div class="p-4">
+                <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-100">
+                  {image.title}
+                </h3>
+                <p class="text-sm text-gray-500 dark:text-gray-400">
+                  {image.category}
+                </p>
+              </div>
+            </a>
+          </div>
+        ))
+      }
     </div>
   </main>
 </Layout>

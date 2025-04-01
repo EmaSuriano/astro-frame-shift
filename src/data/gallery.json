@@ -1,0 +1,62 @@
+[
+    {
+        "id": 1,
+        "src": "https://images.unsplash.com/photo-1601388152430-4ad0f14c0788?q=80&w=720&auto=format&fit=crop",
+        "alt": "Mountain landscape",
+        "title": "Mountain View",
+        "description": "A beautiful mountain landscape taken during sunrise, showcasing the majestic peaks against a vibrant sky.",
+        "category": "Nature",
+        "date": "2024-03-15",
+        "photographer": "Unsplash Photographer"
+    },
+    {
+        "id": 2,
+        "src": "https://images.unsplash.com/photo-1477959858617-67f85cf4f1df",
+        "alt": "City skyline",
+        "title": "Urban Skyline",
+        "description": "A stunning view of the city skyline during night time, with lights illuminating the urban landscape.",
+        "category": "Urban",
+        "date": "2024-02-20",
+        "photographer": "Unsplash Photographer"
+    },
+    {
+        "id": 3,
+        "src": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e",
+        "alt": "Beach sunset",
+        "title": "Sunset Beach",
+        "description": "Golden sunset over the ocean with waves gently crashing on the shore, creating a peaceful atmosphere.",
+        "category": "Nature",
+        "date": "2024-01-10",
+        "photographer": "Unsplash Photographer"
+    },
+    {
+        "id": 4,
+        "src": "https://images.unsplash.com/photo-1441974231531-c6227db76b6e",
+        "alt": "Forest path",
+        "title": "Forest Trail",
+        "description": "A serene path through the dense forest with sunlight filtering through the trees, creating beautiful light rays.",
+        "category": "Nature",
+        "date": "2024-03-05",
+        "photographer": "Unsplash Photographer"
+    },
+    {
+        "id": 5,
+        "src": "https://images.unsplash.com/photo-1613643971996-c9f6e7d07000?q=80&w=720&auto=format&fit=crop",
+        "alt": "Historic architecture",
+        "title": "Historic Building",
+        "description": "An ancient architectural marvel showcasing intricate designs and craftsmanship from centuries past.",
+        "category": "Architecture",
+        "date": "2024-02-28",
+        "photographer": "Unsplash Photographer"
+    },
+    {
+        "id": 6,
+        "src": "https://images.unsplash.com/photo-1546182990-dffeafbe841d",
+        "alt": "Wildlife photography",
+        "title": "Wildlife Moment",
+        "description": "A rare capture of wildlife in its natural habitat, showcasing the beauty and majesty of nature.",
+        "category": "Wildlife",
+        "date": "2024-01-25",
+        "photographer": "Unsplash Photographer"
+    }
+]
