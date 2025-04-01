@@ -1,0 +1,179 @@
+---
+// src/pages/image/[id].astro
+import { Image } from "astro:assets";
+import Layout from "../../layouts/Layout.astro";
+
+export async function getStaticPaths() {
+  // This would typically come from a data source or API
+  const images = [
+    {
+      id: 1,
+      src: "https://images.unsplash.com/photo-1601388152430-4ad0f14c0788?q=80&w=720&auto=format&fit=crop",
+      alt: "Mountain landscape",
+      title: "Mountain View",
+      description:
+        "A beautiful mountain landscape taken during sunrise, showcasing the majestic peaks against a vibrant sky.",
+      category: "Nature",
+      date: "2024-03-15",
+      photographer: "Unsplash Photographer",
+    },
+    {
+      id: 2,
+      src: "https://images.unsplash.com/photo-1477959858617-67f85cf4f1df",
+      alt: "City skyline",
+      title: "Urban Skyline",
+      description:
+        "A stunning view of the city skyline during night time, with lights illuminating the urban landscape.",
+      category: "Urban",
+      date: "2024-02-20",
+      photographer: "Unsplash Photographer",
+    },
+    {
+      id: 3,
+      src: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e",
+      alt: "Beach sunset",
+      title: "Sunset Beach",
+      description:
+        "Golden sunset over the ocean with waves gently crashing on the shore, creating a peaceful atmosphere.",
+      category: "Nature",
+      date: "2024-01-10",
+      photographer: "Unsplash Photographer",
+    },
+    {
+      id: 4,
+      src: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e",
+      alt: "Forest path",
+      title: "Forest Trail",
+      description:
+        "A serene path through the dense forest with sunlight filtering through the trees, creating beautiful light rays.",
+      category: "Nature",
+      date: "2024-03-05",
+      photographer: "Unsplash Photographer",
+    },
+    {
+      id: 5,
+      src: "https://images.unsplash.com/photo-1613643971996-c9f6e7d07000?q=80&w=720&auto=format&fit=crop",
+      alt: "Historic architecture",
+      title: "Historic Building",
+      description:
+        "An ancient architectural marvel showcasing intricate designs and craftsmanship from centuries past.",
+      category: "Architecture",
+      date: "2024-02-28",
+      photographer: "Unsplash Photographer",
+    },
+    {
+      id: 6,
+      src: "https://images.unsplash.com/photo-1546182990-dffeafbe841d",
+      alt: "Wildlife photography",
+      title: "Wildlife Moment",
+      description:
+        "A rare capture of wildlife in its natural habitat, showcasing the beauty and majesty of nature.",
+      category: "Wildlife",
+      date: "2024-01-25",
+      photographer: "Unsplash Photographer",
+    },
+  ];
+
+  return images.map((image) => {
+    return {
+      params: { id: image.id.toString() },
+      props: { image },
+    };
+  });
+}
+
+const { image } = Astro.props;
+---
+
+<Layout title={`${image.title} | Image Gallery`}>
+  <main class="container mx-auto px-4 py-8">
+    <a
+      href="/"
+      class="inline-flex items-center mb-6 text-blue-600 dark:text-blue-400 hover:underline"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-5 w-5 mr-1"
+        viewBox="0 0 20 20"
+        fill="currentColor"
+      >
+        <path
+          fill-rule="evenodd"
+          d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
+          clip-rule="evenodd"></path>
+      </svg>
+      Back to Gallery
+    </a>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+      <!-- Large Image on the left -->
+      <div
+        class="overflow-hidden rounded-lg shadow-lg bg-white dark:bg-gray-800"
+        transition:name={`image-${image.id}`}
+      >
+        <Image
+          src={image.src}
+          alt={image.alt}
+          width="600"
+          height="600"
+          class="w-full h-auto object-cover"
+        />
+      </div>
+
+      <!-- Image information on the right -->
+      <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg">
+        <div transition:name={`image-data-${image.id}`}>
+          <h1 class="text-3xl font-bold mb-4 text-gray-800 dark:text-gray-100">
+            {image.title}
+          </h1>
+          <h2
+            class="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-100"
+          >
+            {image.category}
+          </h2>
+        </div>
+
+        <div class="mb-6">
+          <p class="text-gray-700 dark:text-gray-300">
+            {image.description}
+          </p>
+        </div>
+
+        <div class="space-y-3">
+          <div class="flex">
+            <span class="font-semibold w-30 text-gray-700 dark:text-gray-300"
+              >Category:</span
+            >
+            <span class="text-gray-600 dark:text-gray-400"
+              >{image.category}</span
+            >
+          </div>
+
+          <div class="flex">
+            <span class="font-semibold w-30 text-gray-700 dark:text-gray-300"
+              >Date:</span
+            >
+            <span class="text-gray-600 dark:text-gray-400"
+              >{
+                new Date(image.date).toLocaleDateString("en-US", {
+                  year: "numeric",
+                  month: "long",
+                  day: "numeric",
+                })
+              }</span
+            >
+          </div>
+
+          <div class="flex">
+            <span class="font-semibold w-30 text-gray-700 dark:text-gray-300"
+              >Photographer:</span
+            >
+            <span class="text-gray-600 dark:text-gray-400"
+              >{image.photographer}</span
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</Layout>
