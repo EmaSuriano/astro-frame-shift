@@ -31,13 +31,14 @@
     },
     {
         "id": 4,
-        "src": "https://images.unsplash.com/photo-1441974231531-c6227db76b6e",
+        "src": "https://images.unsplash.com/photo-1489378982447-6bd6cca9ed93?q=80&w=720&auto=format&fit=crop",
         "alt": "Forest path",
         "title": "Forest Trail",
         "description": "A serene path through the dense forest with sunlight filtering through the trees, creating beautiful light rays.",
         "category": "Nature",
         "date": "2024-03-05",
-        "photographer": "Unsplash Photographer"
+        "photographer": "Becca Romine",
+        "photographerLink": "https://unsplash.com/@brecca85?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash"
     },
     {
         "id": 5,
