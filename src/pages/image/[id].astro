@@ -20,13 +20,13 @@ export async function getStaticPaths() {
 }
 
 const { image, related } = Astro.props;
-const base = import.meta.env.DEV ? '' : '/astro-frame-shift';
+const { BASE_URL } = import.meta.env;
 ---
 
 <Layout title={`${image.title} | Image Gallery`}>
   <main class="container mx-auto px-6 py-16">
     <a
-      href={`${base}/`}
+      href={BASE_URL}
       class="inline-flex items-center mb-12 text-stone-600 dark:text-slate-400 hover:text-stone-900 dark:hover:text-stone-200 transition-colors duration-300 font-light"
     >
       <svg
@@ -141,7 +141,7 @@ const base = import.meta.env.DEV ? '' : '/astro-frame-shift';
             {related.map((image, i) => (
               <div class="masonry-item break-inside-avoid mb-6">
                 <a
-                  href={`${base}/image/${image.id}`}
+                  href={`${BASE_URL}image/${image.id}`}
                   class="group block overflow-hidden rounded-sm transition-all duration-300 relative"
                   transition:name={`image-${image.id}`}
                 >

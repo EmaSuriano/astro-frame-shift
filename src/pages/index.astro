@@ -3,10 +3,10 @@ import { getCollection } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
 import { Image } from 'astro:assets';
 
+const { BASE_URL } = import.meta.env;
+
 const collection = await getCollection('gallery');
 const images = collection.map((a) => a.data);
-const base = import.meta.env.DEV ? '' : '/astro-frame-shift';
-console.log('base', base);
 ---
 
 <Layout title="Image Gallery">
@@ -24,7 +24,7 @@ console.log('base', base);
         images.map((image, i) => (
           <div class="masonry-item break-inside-avoid mb-6">
             <a
-              href={`${base}/image/${image.id}`}
+              href={`${BASE_URL}image/${image.id}`}
               class="group block overflow-hidden rounded-lg transition-all duration-300 relative"
               transition:name={`image-${image.id}`}
             >
