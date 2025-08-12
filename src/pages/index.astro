@@ -1,15 +1,17 @@
 ---
-import { getCollection } from "astro:content";
-import Layout from "../layouts/Layout.astro";
-import { Image } from "astro:assets";
+import { getCollection } from 'astro:content';
+import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
 
-const collection = await getCollection("gallery");
+const collection = await getCollection('gallery');
 const images = collection.map((a) => a.data);
 ---
 
 <Layout title="Image Gallery">
   <main class="container mx-auto px-6 py-16">
-    <h1 class="text-5xl font-light tracking-wide mb-16 text-stone-900 dark:text-stone-100">
+    <h1
+      class="text-5xl font-light tracking-wide mb-16 text-stone-900 dark:text-stone-100"
+    >
       Gallery
     </h1>
 
@@ -17,7 +19,7 @@ const images = collection.map((a) => a.data);
       class="masonry-container columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-6 space-y-6"
     >
       {
-        images.map((image) => (
+        images.map((image, i) => (
           <div class="masonry-item break-inside-avoid mb-6">
             <a
               href={`/astro-frame-shift/image/${image.id}`}
@@ -34,9 +36,7 @@ const images = collection.map((a) => a.data);
                 />
                 <div class="absolute inset-0 bg-slate-900 opacity-0 group-hover:opacity-50 transition-opacity duration-300 flex items-center justify-center pointer-events-none">
                   <div class="text-stone-100 text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-4">
-                    <h3 class="text-lg font-medium mb-1">
-                      {image.title}
-                    </h3>
+                    <h3 class="text-lg font-medium mb-1">{image.title}</h3>
                     <p class="text-sm font-light tracking-wide opacity-90">
                       {image.category}
                     </p>

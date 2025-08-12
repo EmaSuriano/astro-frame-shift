@@ -7,13 +7,12 @@ import compress from '@playform/compress';
 export default defineConfig({
   site: 'https://emasuriano.github.io',
   base: 'astro-frame-shift',
-  prefetch: {
-    defaultStrategy: 'viewport',
-  },
+  prefetch: { defaultStrategy: 'viewport' },
   integrations: [compress()],
   vite: {
     plugins: [tailwindcss()],
   },
+  // Authorizing remote images https://images.unsplash.com/
   image: {
     remotePatterns: [{ protocol: 'https' }],
   },
