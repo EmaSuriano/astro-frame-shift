@@ -12,6 +12,7 @@ const gallery = defineCollection({
     category: z.string(),
     date: z.string(),
     photographer: z.string(),
+    photographerLink: z.string().optional(),
   }),
 });
 

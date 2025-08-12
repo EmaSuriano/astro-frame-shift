@@ -4,7 +4,9 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "build": "yarn check:images && astro build",
+    "build:skip-checks": "astro build",
+    "check:images": "tsx scripts/check-images.ts",
     "preview": "astro preview",
     "astro": "astro"
   },
@@ -12,5 +14,10 @@
     "@tailwindcss/vite": "^4.0.17",
     "astro": "^5.5.6",
     "tailwindcss": "^4.0.17"
+  },
+  "devDependencies": {
+    "@types/node": "^24.2.1",
+    "tsx": "^4.20.3",
+    "typescript": "^5.9.2"
   }
 }

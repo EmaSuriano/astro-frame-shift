@@ -8,9 +8,9 @@ const images = collection.map((a) => a.data);
 ---
 
 <Layout title="Image Gallery">
-  <main class="container mx-auto px-4 py-8">
-    <h1 class="text-3xl font-bold mb-8 text-gray-800 dark:text-gray-100">
-      Photo Gallery
+  <main class="container mx-auto px-6 py-16">
+    <h1 class="text-5xl font-light tracking-wide mb-16 text-stone-900 dark:text-stone-100">
+      Gallery
     </h1>
 
     <div
@@ -21,25 +21,27 @@ const images = collection.map((a) => a.data);
           <div class="masonry-item break-inside-avoid mb-6">
             <a
               href={`/astro-frame-shift/image/${image.id}`}
-              class="group block overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 bg-white dark:bg-gray-800"
+              class="group block overflow-hidden rounded-lg transition-all duration-300 relative"
               transition:name={`image-${image.id}`}
             >
-              <div class="overflow-hidden">
+              <div class="overflow-hidden relative">
                 <Image
                   src={image.src}
                   alt={image.alt}
                   width="400"
                   height="400"
-                  class="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105"
+                  class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-102"
                 />
-              </div>
-              <div class="p-4">
-                <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-100">
-                  {image.title}
-                </h3>
-                <p class="text-sm text-gray-500 dark:text-gray-400">
-                  {image.category}
-                </p>
+                <div class="absolute inset-0 bg-slate-900 opacity-0 group-hover:opacity-50 transition-opacity duration-300 flex items-center justify-center pointer-events-none">
+                  <div class="text-stone-100 text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-4">
+                    <h3 class="text-lg font-medium mb-1">
+                      {image.title}
+                    </h3>
+                    <p class="text-sm font-light tracking-wide opacity-90">
+                      {image.category}
+                    </p>
+                  </div>
+                </div>
               </div>
             </a>
           </div>

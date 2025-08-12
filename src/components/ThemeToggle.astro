@@ -1,8 +1,8 @@
-<button id="theme-toggle" class="p-2 rounded-full bg-gray-200 dark:bg-gray-700">
+<button id="theme-toggle" class="p-3 rounded-full bg-stone-200 dark:bg-slate-700 hover:bg-stone-300 dark:hover:bg-slate-600 transition-colors duration-200">
   <!-- Sun icon for dark mode (shown when in dark mode) -->
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    class="h-5 w-5 text-gray-800 dark:text-yellow-300 dark:block hidden"
+    class="h-5 w-5 text-stone-800 dark:text-stone-100 dark:block hidden"
     viewBox="0 0 20 20"
     fill="currentColor"
   >
@@ -14,7 +14,7 @@
   <!-- Moon icon for light mode (shown when in light mode) -->
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    class="h-5 w-5 text-gray-800 dark:text-gray-200 dark:hidden block"
+    class="h-5 w-5 text-stone-800 dark:text-stone-100 dark:hidden block"
     viewBox="0 0 20 20"
     fill="currentColor"
   >
@@ -23,40 +23,39 @@
   </svg>
 </button>
 
-<script is:inline>
-  const theme = (() => {
-    if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
-      return localStorage.getItem("theme");
-    }
-    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-      return "dark";
-    }
-    return "light";
-  })();
+<script>
+  function setupThemeToggle() {
+    const themeToggle = document.getElementById('theme-toggle');
+    if (!themeToggle) return;
 
-  if (theme === "dark") {
-    document.documentElement.classList.add("dark");
-  } else {
-    document.documentElement.classList.remove("dark");
+    themeToggle.addEventListener('click', () => {
+      const isDark = document.documentElement.classList.toggle('dark');
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    });
   }
 
-  window.localStorage.setItem("theme", theme);
-</script>
-
-<script>
-  const themeToggle = document.getElementById("theme-toggle");
-
-  themeToggle?.addEventListener("click", () => {
-    const isDark = document.documentElement.classList.toggle("dark");
-    localStorage.setItem("theme", isDark ? "dark" : "light");
-  });
+  // Setup on initial load
+  setupThemeToggle();
 
   // Handle reattaching event listeners on page navigation
-  document.addEventListener("astro:after-swap", () => {
-    const newThemeToggle = document.getElementById("theme-toggle");
-    newThemeToggle?.addEventListener("click", () => {
-      const isDark = document.documentElement.classList.toggle("dark");
-      localStorage.setItem("theme", isDark ? "dark" : "light");
-    });
+  document.addEventListener('astro:after-swap', () => {
+    // Re-apply theme from localStorage after navigation
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+
+    // Re-setup event listener
+    setupThemeToggle();
+  });
+
+  // Also handle before swap to maintain theme
+  document.addEventListener('astro:before-swap', (ev) => {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+      ev.newDocument.documentElement.classList.add('dark');
+    }
   });
 </script>
