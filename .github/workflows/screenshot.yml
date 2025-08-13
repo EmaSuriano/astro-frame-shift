@@ -1,0 +1,25 @@
+name: Screenshot
+
+on:
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  screenshots:
+    runs-on: ubuntu-latest
+
+    permissions:
+      # Give the default GITHUB_TOKEN write permission to commit and push the
+      # added or changed files to the repository.
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: karol-brejna-i/webpage-screenshot-action@v1
+        id: screenshot
+        with:
+          url: https://emasuriano.github.io/astro-frame-shift/
+          output: ./public/preview.png
+
+      - uses: stefanzweifel/git-auto-commit-action@v6

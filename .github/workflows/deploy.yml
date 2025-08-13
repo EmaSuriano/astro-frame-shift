@@ -30,17 +30,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-
-  screenshots:
-    needs: deploy
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-    steps:
-      - uses: karol-brejna-i/webpage-screenshot-action@v1
-        id: screenshot
-        with:
-          url: https://emasuriano.github.io/astro-frame-shift/
-          output: ./public/preview.png
-
-      - uses: stefanzweifel/git-auto-commit-action@v6
