@@ -14,6 +14,20 @@ jobs:
       - name: Install, build, and upload your site
         uses: withastro/action@v3
 
+  screenshots:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: karol-brejna-i/webpage-screenshot-action@v1
+        id: screenshot
+        with:
+          url: file://${{github.workspace}}/dist/index.html
+          output: ./public/preview.png
+
+      - uses: stefanzweifel/git-auto-commit-action@v6
+
   deploy:
     needs: build
     runs-on: ubuntu-latest
