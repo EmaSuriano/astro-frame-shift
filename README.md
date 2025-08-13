@@ -78,7 +78,6 @@ Edit `src/data/gallery.json` to add new images:
 
 ```json
 {
-  "id": 61,
   "src": "https://example.com/image.jpg",
   "alt": "Image description",
   "title": "Image Title",

@@ -1,5 +1,5 @@
 ---
-// src/pages/image/[id].astro
+// src/pages/image/[title].astro
 import { Image } from 'astro:assets';
 import Layout from '../../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
@@ -7,14 +7,14 @@ import path from 'path';
 
 export async function getStaticPaths() {
   const collection = await getCollection('gallery');
-  const images = collection.map((a) => a.data);
+  const images = collection.map((a) => ({ ...a.data, id: a.id }));
 
   return images.map((image) => {
     const related = images.filter(
-      (img) => img.id !== image.id && img.category === image.category,
+      (img) => img.title !== image.title && img.category === image.category,
     );
     return {
-      params: { id: image.id.toString() },
+      params: { title: image.id },
       props: { image, related },
     };
   });
@@ -142,7 +142,7 @@ const { BASE_URL } = import.meta.env;
             {related.map((image, i) => (
               <div class="masonry-item break-inside-avoid mb-6">
                 <a
-                  href={path.join(BASE_URL, 'image', String(image.id))}
+                  href={path.join(BASE_URL, 'image', image.id)}
                   class="group block overflow-hidden rounded-sm transition-all duration-300 relative"
                   transition:name={`image-${image.id}`}
                 >

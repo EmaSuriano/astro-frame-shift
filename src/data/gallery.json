@@ -1,6 +1,5 @@
 [
   {
-    "id": 1,
     "src": "https://images.unsplash.com/photo-1601388152430-4ad0f14c0788?q=80&w=720&auto=format&fit=crop",
     "alt": "Mountain landscape",
     "title": "Mountain View",
@@ -10,7 +9,6 @@
     "photographer": "Unsplash Photographer"
   },
   {
-    "id": 2,
     "src": "https://images.unsplash.com/photo-1477959858617-67f85cf4f1df",
     "alt": "City skyline",
     "title": "Urban Skyline",
@@ -20,7 +18,6 @@
     "photographer": "Unsplash Photographer"
   },
   {
-    "id": 3,
     "src": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e",
     "alt": "Beach sunset",
     "title": "Sunset Beach",
@@ -30,7 +27,6 @@
     "photographer": "Unsplash Photographer"
   },
   {
-    "id": 4,
     "src": "https://images.unsplash.com/photo-1489378982447-6bd6cca9ed93?q=80&w=720&auto=format&fit=crop",
     "alt": "Forest path",
     "title": "Forest Trail",
@@ -41,7 +37,6 @@
     "photographerLink": "https://unsplash.com/@brecca85?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash"
   },
   {
-    "id": 5,
     "src": "https://images.unsplash.com/photo-1613643971996-c9f6e7d07000?q=80&w=720&auto=format&fit=crop",
     "alt": "Historic architecture",
     "title": "Historic Building",
@@ -51,7 +46,6 @@
     "photographer": "Unsplash Photographer"
   },
   {
-    "id": 6,
     "src": "https://images.unsplash.com/photo-1546182990-dffeafbe841d",
     "alt": "Wildlife photography",
     "title": "Wildlife Moment",
@@ -61,7 +55,6 @@
     "photographer": "Unsplash Photographer"
   },
   {
-    "id": 7,
     "src": "https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=720&auto=format&fit=crop",
     "alt": "Modern interior design",
     "title": "Modern Living Space",
@@ -72,7 +65,6 @@
     "photographerLink": "https://unsplash.com/@spacejoy?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash"
   },
   {
-    "id": 8,
     "src": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=720&auto=format&fit=crop",
     "alt": "Mountain lake reflection",
     "title": "Alpine Reflection",
@@ -83,7 +75,6 @@
     "photographerLink": "https://unsplash.com/@kalenemsley?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash"
   },
   {
-    "id": 9,
     "src": "https://images.unsplash.com/photo-1554080353-a576cf803bda?q=80&w=720&auto=format&fit=crop",
     "alt": "Abstract art painting",
     "title": "Color Flow",
@@ -94,7 +85,6 @@
     "photographerLink": "https://unsplash.com/@paige_cody?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash"
   },
   {
-    "id": 10,
     "src": "https://images.unsplash.com/photo-1565958011703-44f9829ba187?q=80&w=720&auto=format&fit=crop",
     "alt": "Delicious pasta dish",
     "title": "Artisan Pasta",
@@ -105,7 +95,6 @@
     "photographerLink": "https://unsplash.com/@dearinnamar?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash"
   },
   {
-    "id": 11,
     "src": "https://images.unsplash.com/photo-1519904981063-b0cf448d479e?q=80&w=720&auto=format&fit=crop",
     "alt": "Space and stars",
     "title": "Cosmic Wonder",
@@ -116,7 +105,6 @@
     "photographerLink": "https://unsplash.com/@jeremythomasphoto?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash"
   },
   {
-    "id": 12,
     "src": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=720&auto=format&fit=crop",
     "alt": "Fashion portrait",
     "title": "Urban Style",
@@ -127,7 +115,6 @@
     "photographerLink": "https://unsplash.com/@tamarabellis?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash"
   },
   {
-    "id": 13,
     "src": "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?q=80&w=720&auto=format&fit=crop",
     "alt": "Vintage car",
     "title": "Classic Beauty",
@@ -138,7 +125,6 @@
     "photographerLink": "https://unsplash.com/@samuele_piccarini?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash"
   },
   {
-    "id": 14,
     "src": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=720&auto=format&fit=crop",
     "alt": "Tropical beach",
     "title": "Paradise Found",
@@ -149,7 +135,6 @@
     "photographerLink": "https://unsplash.com/@oulashin?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash"
   },
   {
-    "id": 15,
     "src": "https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?q=80&w=720&auto=format&fit=crop",
     "alt": "Tech workspace",
     "title": "Digital Workspace",
@@ -160,7 +145,6 @@
     "photographerLink": "https://unsplash.com/@lucabravo?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash"
   },
   {
-    "id": 16,
     "src": "https://images.unsplash.com/photo-1519501025264-65ba15a82390?q=80&w=720&auto=format&fit=crop",
     "alt": "City at night",
     "title": "Night Lights",
@@ -171,7 +155,6 @@
     "photographerLink": "https://unsplash.com/@huchenme?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash"
   },
   {
-    "id": 17,
     "src": "https://images.unsplash.com/photo-1583608205776-bfd35f0d9f83?q=80&w=720&auto=format&fit=crop",
     "alt": "Modern architecture",
     "title": "Contemporary Lines",
@@ -182,7 +165,6 @@
     "photographerLink": "https://unsplash.com/@joelfilip?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash"
   },
   {
-    "id": 18,
     "src": "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?q=80&w=720&auto=format&fit=crop",
     "alt": "Eagle in flight",
     "title": "Soaring Eagle",
@@ -193,7 +175,6 @@
     "photographerLink": "https://unsplash.com/@brock222?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash"
   },
   {
-    "id": 19,
     "src": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?q=80&w=720&auto=format&fit=crop",
     "alt": "Minimalist bedroom",
     "title": "Serene Bedroom",
@@ -204,7 +185,6 @@
     "photographerLink": "https://unsplash.com/@jeshoots?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash"
   },
   {
-    "id": 20,
     "src": "https://images.unsplash.com/photo-1547036967-23d11aacaee0?q=80&w=720&auto=format&fit=crop",
     "alt": "Abstract sculpture",
     "title": "Modern Sculpture",
@@ -215,7 +195,6 @@
     "photographerLink": "https://unsplash.com/@birminghammuseumstrust?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash"
   },
   {
-    "id": 21,
     "src": "https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=720&auto=format&fit=crop",
     "alt": "Gourmet dessert",
     "title": "Sweet Creation",
@@ -226,7 +205,6 @@
     "photographerLink": "https://unsplash.com/@brookelark?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash"
   },
   {
-    "id": 22,
     "src": "https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?q=80&w=720&auto=format&fit=crop",
     "alt": "Galaxy nebula",
     "title": "Distant Galaxy",
@@ -237,7 +215,6 @@
     "photographerLink": "https://unsplash.com/@nasa?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash"
   },
   {
-    "id": 23,
     "src": "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=720&auto=format&fit=crop",
     "alt": "Fashion model",
     "title": "Editorial Fashion",
@@ -248,7 +225,6 @@
     "photographerLink": "https://unsplash.com/@tamarabellis?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash"
   },
   {
-    "id": 24,
     "src": "https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=720&auto=format&fit=crop",
     "alt": "Sports car",
     "title": "Speed Machine",
@@ -259,7 +235,6 @@
     "photographerLink": "https://unsplash.com/@campbellphotographyco?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash"
   },
   {
-    "id": 25,
     "src": "https://images.unsplash.com/photo-1488646953014-85cb44e25828?q=80&w=720&auto=format&fit=crop",
     "alt": "Mountain hiking",
     "title": "Adventure Trail",
@@ -270,7 +245,6 @@
     "photographerLink": "https://unsplash.com/@toomastartes?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash"
   },
   {
-    "id": 26,
     "src": "https://images.unsplash.com/photo-1526498460520-4c246339dccb?q=80&w=720&auto=format&fit=crop",
     "alt": "Smartphone and laptop",
     "title": "Mobile Technology",
@@ -281,7 +255,6 @@
     "photographerLink": "https://unsplash.com/@stenritterfeld?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash"
   },
   {
-    "id": 27,
     "src": "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=720&auto=format&fit=crop",
     "alt": "Forest waterfall",
     "title": "Hidden Falls",
@@ -292,7 +265,6 @@
     "photographerLink": "https://unsplash.com/@davidmarcu?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash"
   },
   {
-    "id": 28,
     "src": "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?q=80&w=720&auto=format&fit=crop",
     "alt": "City bridge",
     "title": "Urban Connection",
@@ -303,7 +275,6 @@
     "photographerLink": "https://unsplash.com/@mvdheuvel?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash"
   },
   {
-    "id": 29,
     "src": "https://images.unsplash.com/photo-1478760329108-5c3ed9d495a0?q=80&w=720&auto=format&fit=crop",
     "alt": "Cathedral interior",
     "title": "Sacred Geometry",
@@ -314,7 +285,6 @@
     "photographerLink": "https://unsplash.com/@nikolayvorobyev?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash"
   },
   {
-    "id": 30,
     "src": "https://images.unsplash.com/photo-1564349683136-77e08dba1ef7?q=80&w=720&auto=format&fit=crop",
     "alt": "Leopard portrait",
     "title": "Wild Grace",
@@ -325,7 +295,6 @@
     "photographerLink": "https://unsplash.com/@francesco_ungaro?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash"
   },
   {
-    "id": 31,
     "src": "https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?q=80&w=720&auto=format&fit=crop",
     "alt": "Scandinavian kitchen",
     "title": "Nordic Kitchen",
@@ -336,7 +305,6 @@
     "photographerLink": "https://unsplash.com/@jipy32?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash"
   },
   {
-    "id": 32,
     "src": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?q=80&w=720&auto=format&fit=crop",
     "alt": "Watercolor painting",
     "title": "Fluid Colors",
@@ -347,7 +315,6 @@
     "photographerLink": "https://unsplash.com/@marjanblan?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash"
   },
   {
-    "id": 33,
     "src": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=720&auto=format&fit=crop",
     "alt": "Fresh salad",
     "title": "Garden Fresh",
@@ -358,7 +325,6 @@
     "photographerLink": "https://unsplash.com/@anhnguyen?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash"
   },
   {
-    "id": 34,
     "src": "https://images.unsplash.com/photo-1502134249126-9f3755a50d78?q=80&w=720&auto=format&fit=crop",
     "alt": "Earth from space",
     "title": "Blue Planet",
@@ -369,7 +335,6 @@
     "photographerLink": "https://unsplash.com/@nasa?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash"
   },
   {
-    "id": 35,
     "src": "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?q=80&w=720&auto=format&fit=crop",
     "alt": "Street fashion",
     "title": "Urban Chic",
@@ -380,7 +345,6 @@
     "photographerLink": "https://unsplash.com/@hannahmorgan7?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash"
   },
   {
-    "id": 36,
     "src": "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=720&auto=format&fit=crop",
     "alt": "Race car",
     "title": "Racing Spirit",
@@ -391,7 +355,6 @@
     "photographerLink": "https://unsplash.com/@chuttersnap?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash"
   },
   {
-    "id": 37,
     "src": "https://images.unsplash.com/photo-1545558014-8692077e9b5c?q=80&w=720&auto=format&fit=crop",
     "alt": "Japanese temple",
     "title": "Zen Garden",
@@ -402,7 +365,6 @@
     "photographerLink": "https://unsplash.com/@sorasak?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash"
   },
   {
-    "id": 38,
     "src": "https://images.unsplash.com/photo-1531297484001-80022131f5a1?q=80&w=720&auto=format&fit=crop",
     "alt": "Server room",
     "title": "Data Center",
@@ -413,7 +375,6 @@
     "photographerLink": "https://unsplash.com/@tvick?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash"
   },
   {
-    "id": 39,
     "src": "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?q=80&w=720&auto=format&fit=crop",
     "alt": "Desert landscape",
     "title": "Golden Dunes",
@@ -424,7 +385,6 @@
     "photographerLink": "https://unsplash.com/@rohittandon?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash"
   },
   {
-    "id": 40,
     "src": "https://images.unsplash.com/photo-1555529902-5261145633bf?q=80&w=720&auto=format&fit=crop",
     "alt": "Street market",
     "title": "City Market",
@@ -435,7 +395,6 @@
     "photographerLink": "https://unsplash.com/@ohleighann?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash"
   },
   {
-    "id": 41,
     "src": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=720&auto=format&fit=crop",
     "alt": "Modern skyscraper",
     "title": "Glass Tower",
@@ -446,7 +405,6 @@
     "photographerLink": "https://unsplash.com/@javiermiranda?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash"
   },
   {
-    "id": 42,
     "src": "https://images.unsplash.com/photo-1544552866-d3ed42536cfd?q=80&w=720&auto=format&fit=crop",
     "alt": "Polar bear",
     "title": "Arctic Giant",
@@ -457,7 +415,6 @@
     "photographerLink": "https://unsplash.com/@hansjurgen007?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash"
   },
   {
-    "id": 43,
     "src": "https://images.unsplash.com/photo-1620626011761-996317b8d101?q=80&w=720&auto=format&fit=crop",
     "alt": "Modern bathroom",
     "title": "Spa Retreat",
@@ -468,7 +425,6 @@
     "photographerLink": "https://unsplash.com/@jipy32?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash"
   },
   {
-    "id": 44,
     "src": "https://images.unsplash.com/photo-1578321272176-b7bbc0679853?q=80&w=720&auto=format&fit=crop",
     "alt": "Digital art",
     "title": "Neon Dreams",
@@ -479,7 +435,6 @@
     "photographerLink": "https://unsplash.com/@fakurian?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash"
   },
   {
-    "id": 45,
     "src": "https://images.unsplash.com/photo-1551218808-94e220e084d2?q=80&w=720&auto=format&fit=crop",
     "alt": "Sushi platter",
     "title": "Japanese Artistry",
@@ -490,7 +445,6 @@
     "photographerLink": "https://unsplash.com/@jdz?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash"
   },
   {
-    "id": 46,
     "src": "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=720&auto=format&fit=crop",
     "alt": "Morning mist over lake",
     "title": "Misty Dawn",
@@ -501,7 +455,6 @@
     "photographerLink": "https://unsplash.com/@sxoxm?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash"
   },
   {
-    "id": 47,
     "src": "https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?q=80&w=720&auto=format&fit=crop",
     "alt": "Metro station",
     "title": "Underground",
@@ -512,7 +465,6 @@
     "photographerLink": "https://unsplash.com/@mvdheuvel?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash"
   },
   {
-    "id": 48,
     "src": "https://images.unsplash.com/photo-1511593358241-7eea1f3c84e5?q=80&w=720&auto=format&fit=crop",
     "alt": "Ancient ruins",
     "title": "Timeless Stone",
@@ -523,7 +475,6 @@
     "photographerLink": "https://unsplash.com/@madbyte?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash"
   },
   {
-    "id": 49,
     "src": "https://images.unsplash.com/photo-1561948955-570b270e7c36?q=80&w=720&auto=format&fit=crop",
     "alt": "Giraffe in savanna",
     "title": "Gentle Giant",
@@ -534,7 +485,6 @@
     "photographerLink": "https://unsplash.com/@sutirtab?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash"
   },
   {
-    "id": 50,
     "src": "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=720&auto=format&fit=crop",
     "alt": "Cozy reading nook",
     "title": "Reading Corner",
@@ -545,7 +495,6 @@
     "photographerLink": "https://unsplash.com/@spacejoy?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash"
   },
   {
-    "id": 51,
     "src": "https://images.unsplash.com/photo-1549490349-8643362247b5?q=80&w=720&auto=format&fit=crop",
     "alt": "Street art mural",
     "title": "Urban Canvas",
@@ -556,7 +505,6 @@
     "photographerLink": "https://unsplash.com/@alicegrace?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash"
   },
   {
-    "id": 52,
     "src": "https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?q=80&w=720&auto=format&fit=crop",
     "alt": "Pancake stack",
     "title": "Morning Stack",
@@ -567,7 +515,6 @@
     "photographerLink": "https://unsplash.com/@stilclassics?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash"
   },
   {
-    "id": 53,
     "src": "https://images.unsplash.com/photo-1614313913007-2b4ae8ce32d6?q=80&w=720&auto=format&fit=crop",
     "alt": "Solar system",
     "title": "Planetary Dance",
@@ -578,7 +525,6 @@
     "photographerLink": "https://unsplash.com/@nasa?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash"
   },
   {
-    "id": 54,
     "src": "https://images.unsplash.com/photo-1523983388277-336a66bf9bcd?q=80&w=720&auto=format&fit=crop",
     "alt": "Fashion week runway",
     "title": "Runway Moment",
@@ -589,7 +535,6 @@
     "photographerLink": "https://unsplash.com/@godisable?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash"
   },
   {
-    "id": 56,
     "src": "https://images.unsplash.com/photo-1529260830199-42c24126f198?q=80&w=720&auto=format&fit=crop",
     "alt": "Moroccan marketplace",
     "title": "Marrakech Colors",
@@ -600,7 +545,6 @@
     "photographerLink": "https://unsplash.com/@anniespratt?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash"
   },
   {
-    "id": 57,
     "src": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=720&auto=format&fit=crop",
     "alt": "AI robot",
     "title": "Digital Mind",
@@ -611,7 +555,6 @@
     "photographerLink": "https://unsplash.com/@askkell?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash"
   },
   {
-    "id": 58,
     "src": "https://images.unsplash.com/photo-1448375240586-882707db888b?q=80&w=720&auto=format&fit=crop",
     "alt": "Redwood forest",
     "title": "Ancient Giants",
@@ -622,7 +565,6 @@
     "photographerLink": "https://unsplash.com/@mischievous_penguins?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash"
   },
   {
-    "id": 59,
     "src": "https://images.unsplash.com/photo-1514565131-fce0801e5785?q=80&w=720&auto=format&fit=crop",
     "alt": "Neon district",
     "title": "Electric Nights",
@@ -633,7 +575,6 @@
     "photographerLink": "https://unsplash.com/@jezarb?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash"
   },
   {
-    "id": 60,
     "src": "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?q=80&w=720&auto=format&fit=crop",
     "alt": "Opera house interior",
     "title": "Grand Theatre",
