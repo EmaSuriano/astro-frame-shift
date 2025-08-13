@@ -491,14 +491,14 @@
     },
     {
         "id": 46,
-        "src": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=720&auto=format&fit=crop",
+        "src": "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=720&auto=format&fit=crop",
         "alt": "Morning mist over lake",
         "title": "Misty Dawn",
         "description": "Serene lake covered in morning mist with silhouettes of trees creating a mystical atmosphere.",
         "category": "Nature",
         "date": "2024-06-01",
-        "photographer": "Kalen Emsley",
-        "photographerLink": "https://unsplash.com/@kalenemsley?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash"
+        "photographer": "Sergey Pesterev",
+        "photographerLink": "https://unsplash.com/@sxoxm?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash"
     },
     {
         "id": 47,
@@ -590,7 +590,7 @@
     },
     {
         "id": 55,
-        "src": "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=720&auto=format&fit=crop",
+        "src": "https://images.unsplash.com/photo-1494976688153-c17924f78ba2?q=80&w=720&auto=format&fit=crop",
         "alt": "Electric supercar",
         "title": "Future Drive",
         "description": "Sleek electric supercar with futuristic design elements and aerodynamic curves in urban setting.",
@@ -634,7 +634,7 @@
     },
     {
         "id": 59,
-        "src": "https://images.unsplash.com/photo-1519501025264-65ba15a82390?q=80&w=720&auto=format&fit=crop",
+        "src": "https://images.unsplash.com/photo-1514565131-fce0801e5785?q=80&w=720&auto=format&fit=crop",
         "alt": "Neon district",
         "title": "Electric Nights",
         "description": "Vibrant neon-lit street in Tokyo's entertainment district with colorful signs and bustling nightlife.",
