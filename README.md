@@ -2,6 +2,8 @@
 
 A clean, minimalist photo gallery built with Astro featuring smooth transitions, dark/light theme support, and responsive masonry layout.
 
+![Demo](https://github.com/user-attachments/assets/722dc92e-151a-454b-be75-90974536c7f5)
+
 ## ✨ Features
 
 - **Minimalist Design**: Clean, borderless interface with no shadows or visual clutter
