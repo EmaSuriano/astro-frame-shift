@@ -1,5 +1,6 @@
-import { defineCollection, reference, z } from "astro:content";
-import { file, glob } from "astro/loaders";
+import { defineCollection } from "astro:content";
+import { z } from "astro/zod";
+import { file } from "astro/loaders";
 
 function slugify(text: string): string {
   return text
