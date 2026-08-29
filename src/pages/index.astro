@@ -3,27 +3,58 @@ import { getCollection } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
 import { Image } from 'astro:assets';
 import path from 'path';
+import { categoriesOf, formatCategories } from '../utils/categories';
 
 const { BASE_URL } = import.meta.env;
 
 const collection = await getCollection('gallery');
 const images = collection.map((a) => ({ ...a.data, id: a.id }));
+const allCategories = [
+  ...new Set(images.flatMap((img) => categoriesOf(img))),
+].sort((a, b) => a.localeCompare(b));
 ---
 
 <Layout title="Image Gallery">
   <main class="container mx-auto px-6 py-16">
     <h1
-      class="text-5xl font-light tracking-wide mb-16 text-stone-900 dark:text-stone-100"
+      class="text-5xl font-light tracking-wide mb-8 text-stone-900 dark:text-stone-100"
     >
       Gallery
     </h1>
 
     <div
+      id="category-filters"
+      class="flex flex-wrap gap-2 mb-12"
+    >
+      <button
+        type="button"
+        data-filter="all"
+        class="category-chip is-active px-3 py-1 text-sm font-light tracking-wide rounded-full border border-stone-300 dark:border-slate-600 text-stone-600 dark:text-slate-400 hover:text-stone-900 dark:hover:text-stone-200 transition-colors duration-300"
+      >
+        All
+      </button>
+      {
+        allCategories.map((category) => (
+          <button
+            type="button"
+            data-filter={category}
+            class="category-chip px-3 py-1 text-sm font-light tracking-wide rounded-full border border-stone-300 dark:border-slate-600 text-stone-600 dark:text-slate-400 hover:text-stone-900 dark:hover:text-stone-200 transition-colors duration-300"
+          >
+            {category}
+          </button>
+        ))
+      }
+    </div>
+
+    <div
       class="masonry-container columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-6 space-y-6"
     >
       {
-        images.map((image, i) => (
-          <div class="masonry-item break-inside-avoid mb-6">
+        images.map((image) => (
+          <div
+            class="masonry-item break-inside-avoid mb-6"
+            data-categories={categoriesOf(image).join(',')}
+          >
             <a
               href={path.join(BASE_URL, 'image', image.id)}
               class="group block overflow-hidden rounded-lg transition-all duration-300 relative"
@@ -41,7 +72,7 @@ const images = collection.map((a) => ({ ...a.data, id: a.id }));
                   <div class="text-stone-100 text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-4">
                     <h3 class="text-lg font-medium mb-1">{image.title}</h3>
                     <p class="text-sm font-light tracking-wide opacity-90">
-                      {image.category}
+                      {formatCategories(image)}
                     </p>
                   </div>
                 </div>
@@ -53,3 +84,42 @@ const images = collection.map((a) => ({ ...a.data, id: a.id }));
     </div>
   </main>
 </Layout>
+
+<style>
+  .category-chip.is-active {
+    background-color: #e7e5e4;
+    color: #1c1917;
+    border-color: #a8a29e;
+  }
+  :global(.dark) .category-chip.is-active {
+    background-color: #334155;
+    color: #f5f5f4;
+    border-color: #64748b;
+  }
+  .masonry-item.is-filtered-out {
+    display: none;
+  }
+</style>
+
+<script>
+  function setupCategoryFilters() {
+    const chips = document.querySelectorAll<HTMLButtonElement>('.category-chip');
+    const items = document.querySelectorAll<HTMLElement>('[data-categories]');
+    if (!chips.length) return;
+
+    chips.forEach((chip) => {
+      chip.addEventListener('click', () => {
+        const filter = chip.dataset.filter ?? 'all';
+        chips.forEach((c) => c.classList.toggle('is-active', c === chip));
+        items.forEach((item) => {
+          const cats = (item.dataset.categories ?? '').split(',');
+          const show = filter === 'all' || cats.includes(filter);
+          item.classList.toggle('is-filtered-out', !show);
+        });
+      });
+    });
+  }
+
+  setupCategoryFilters();
+  document.addEventListener('astro:after-swap', setupCategoryFilters);
+</script>

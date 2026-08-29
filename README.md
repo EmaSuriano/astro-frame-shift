@@ -57,7 +57,7 @@ This gallery embraces ultra-minimalism:
 - **60+ Images**: Diverse collection spanning multiple categories
 - **Category Organization**: Architecture, Nature, Street Photography, Portraits, and more
 - **Photographer Attribution**: Credit with optional links to photographer profiles
-- **Related Images**: Category-based suggestions on detail pages
+- **Related Images**: Images can have multiple categories; related images are ranked by tag overlap
 - **Responsive Images**: Optimized loading with Astro's Image component
 
 ## 🧞 Commands
@@ -86,7 +86,7 @@ Edit `src/data/gallery.json` to add new images:
   "alt": "Image description",
   "title": "Image Title",
   "description": "Detailed description of the image",
-  "category": "Category Name",
+  "categories": ["Primary Tag", "Secondary Tag"],
   "date": "2024-01-01",
   "photographer": "Photographer Name",
   "photographerLink": "https://photographer-website.com"

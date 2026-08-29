@@ -11,7 +11,7 @@ interface GalleryImage {
   alt: string;
   title: string;
   description: string;
-  category: string;
+  categories: string[];
   date: string;
   photographer: string;
   photographerLink?: string;

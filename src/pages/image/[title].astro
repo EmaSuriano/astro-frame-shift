@@ -4,15 +4,30 @@ import { Image } from 'astro:assets';
 import Layout from '../../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
 import path from 'path';
+import { categoriesOf, formatCategories } from '../../utils/categories';
 
 export async function getStaticPaths() {
+  const RELATED_LIMIT = 8;
   const collection = await getCollection('gallery');
   const images = collection.map((a) => ({ ...a.data, id: a.id }));
 
   return images.map((image) => {
-    const related = images.filter(
-      (img) => img.title !== image.title && img.category === image.category,
-    );
+    const imageCats = categoriesOf(image);
+    const related = images
+      .filter((img) => img.id !== image.id)
+      .map((img) => {
+        const otherCats = new Set(categoriesOf(img));
+        const score = imageCats.filter((cat) => otherCats.has(cat)).length;
+        return { img, score };
+      })
+      .filter(({ score }) => score > 0)
+      .sort((a, b) => {
+        if (b.score !== a.score) return b.score - a.score;
+        return a.img.title.localeCompare(b.img.title);
+      })
+      .slice(0, RELATED_LIMIT)
+      .map(({ img }) => img);
+
     return {
       params: { title: image.id },
       props: { image, related },
@@ -22,6 +37,7 @@ export async function getStaticPaths() {
 
 const { image, related } = Astro.props;
 const { BASE_URL } = import.meta.env;
+const categoryLabel = formatCategories(image);
 ---
 
 <Layout title={`${image.title} | Image Gallery`}>
@@ -71,7 +87,7 @@ const { BASE_URL } = import.meta.env;
         <h2
           class="text-lg font-light mb-8 text-stone-600 dark:text-slate-300 tracking-wide"
         >
-          {image.category}
+          {categoryLabel}
         </h2>
 
         <div class="mb-8">
@@ -85,10 +101,10 @@ const { BASE_URL } = import.meta.env;
         <div class="space-y-4 text-sm">
           <div class="flex">
             <span class="font-medium w-28 text-stone-600 dark:text-slate-400"
-              >Category:</span
+              >Categories:</span
             >
             <span class="text-stone-700 dark:text-slate-300 font-light"
-              >{image.category}</span
+              >{categoryLabel}</span
             >
           </div>
 
@@ -159,7 +175,7 @@ const { BASE_URL } = import.meta.env;
                       <div class="text-white text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-4">
                         <h3 class="text-lg font-medium mb-1">{image.title}</h3>
                         <p class="text-sm font-light tracking-wide opacity-90">
-                          {image.category}
+                          {formatCategories(image)}
                         </p>
                       </div>
                     </div>
