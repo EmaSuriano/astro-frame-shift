@@ -5,6 +5,6 @@ export interface ImageData {
   alt: string;
   title: string;
   description: string;
-  category: string;
+  categories: string[];
   date: string;
 }

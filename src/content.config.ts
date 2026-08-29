@@ -29,7 +29,7 @@ const gallery = defineCollection({
     alt: z.string(),
     title: z.string(),
     description: z.string(),
-    category: z.string(),
+    categories: z.array(z.string()).min(1),
     date: z.string(),
     photographer: z.string(),
     photographerLink: z.string().optional(),
