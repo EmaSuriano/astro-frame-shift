@@ -71,14 +71,14 @@ const { BASE_URL } = import.meta.env;
     <ClientRouter />
   </head>
   <body
-    class="min-h-screen bg-stone-50 dark:bg-slate-900 font-inter transition-colors duration-300"
+    class="min-h-screen flex flex-col bg-stone-50 dark:bg-slate-900 font-inter transition-colors duration-300"
     transition:animate="initial"
   >
     <div class="fixed top-6 right-6 z-50">
       <ThemeToggle />
     </div>
 
-    <main>
+    <main class="flex-1">
       <slot />
     </main>
 
@@ -90,7 +90,25 @@ const { BASE_URL } = import.meta.env;
         class="container mx-auto px-6 text-center text-stone-600 dark:text-gray-400 text-sm font-light"
       >
         <p>
-          &copy; {new Date().getFullYear()} Gallery
+          &copy; {new Date().getFullYear()}
+          <a
+            href="https://github.com/EmaSuriano"
+            class="hover:text-stone-800 dark:hover:text-gray-200 transition-colors"
+            >Ema Suriano</a
+          >
+        </p>
+        <p class="mt-2">
+          <a
+            href="https://github.com/EmaSuriano/astro-frame-shift"
+            class="hover:text-stone-800 dark:hover:text-gray-200 transition-colors"
+            >Astro Frame Shift</a
+          >
+          · Built with
+          <a
+            href="https://astro.build"
+            class="hover:text-stone-800 dark:hover:text-gray-200 transition-colors"
+            >Astro</a
+          >
         </p>
       </div>
     </footer>
