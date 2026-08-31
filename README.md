@@ -13,6 +13,7 @@ This theme is **Astro 7 ready**.
 - **Responsive Masonry Layout**: CSS-based masonry layout that adapts to all screen sizes
 - **Image Validation**: Build-time TypeScript script to verify all image URLs are working
 - **Smooth Transitions**: Astro View Transitions for seamless navigation between pages
+- **Category routes**: Filter tags are real pages (`/category/{slug}/`) so view transitions work; client-side hide broke them
 - **Hover Effects**: Image information appears only on hover for maximum minimalism
 - **Performance Optimized**: Static site generation with optimized images using Astro's Image component
 
