@@ -38,6 +38,9 @@ export async function getStaticPaths() {
 const { image, related } = Astro.props;
 const { BASE_URL } = import.meta.env;
 const categoryLabel = formatCategories(image);
+const largeSrc = image.src.includes('w=')
+  ? image.src.replace(/w=\d+/, 'w=2400')
+  : `${image.src}${image.src.includes('?') ? '&' : '?'}w=2400`;
 ---
 
 <Layout title={`${image.title} | Image Gallery`}>
@@ -61,22 +64,27 @@ const categoryLabel = formatCategories(image);
     </a>
 
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
-      <!-- Large Image taking 2/3 of the space -->
       <div
         class="lg:col-span-2 overflow-hidden rounded-lg max-h-[85vh] flex items-center justify-center bg-transparent"
         transition:name={`image-${image.id}`}
       >
-        <Image
-          src={image.src}
-          alt={image.alt}
-          width="800"
-          height="800"
-          class="w-auto h-auto object-contain max-h-[85vh] max-w-full"
-          loading="eager"
-        />
+        <button
+          type="button"
+          class="zoom-trigger"
+          popovertarget="image-zoom"
+          aria-label={`View larger: ${image.title}`}
+        >
+          <Image
+            src={image.src}
+            alt={image.alt}
+            width="800"
+            height="800"
+            class="w-auto h-auto object-contain max-h-[85vh] max-w-full"
+            loading="eager"
+          />
+        </button>
       </div>
 
-      <!-- Image information taking 1/3 of the space -->
       <div class="lg:col-span-1 py-4 lg:sticky lg:top-8">
         <h1
           class="text-3xl font-light tracking-wide mb-2 text-stone-900 dark:text-stone-100"
@@ -189,3 +197,63 @@ const categoryLabel = formatCategories(image);
     }
   </main>
 </Layout>
+
+<div id="image-zoom" popover class="zoom-popover">
+  <button
+    type="button"
+    class="zoom-backdrop"
+    popovertarget="image-zoom"
+    popovertargetaction="hide"
+    aria-label="Close larger image"
+  >
+    <img src={largeSrc} alt={image.alt} />
+  </button>
+</div>
+
+<style>
+  .zoom-trigger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    cursor: zoom-in;
+    max-width: 100%;
+  }
+
+  .zoom-popover {
+    width: 100vw;
+    height: 100dvh;
+    max-width: none;
+    max-height: none;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: rgba(12, 10, 9, 0.94);
+    overflow: hidden;
+  }
+
+  .zoom-popover::backdrop {
+    background: rgba(12, 10, 9, 0.8);
+  }
+
+  .zoom-backdrop {
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 1.5rem;
+    border: 0;
+    background: transparent;
+    cursor: zoom-out;
+  }
+
+  .zoom-backdrop img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+  }
+</style>
