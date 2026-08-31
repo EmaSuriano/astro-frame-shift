@@ -14,6 +14,7 @@ This theme is **Astro 7 ready**.
 - **Image Validation**: Build-time TypeScript script to verify all image URLs are working
 - **Smooth Transitions**: Astro View Transitions for seamless navigation between pages
 - **Hover Effects**: Image information appears only on hover for maximum minimalism
+- **PhotoSwipe lightbox**: Click a gallery image to zoom and swipe without leaving the page; captions link to the detail view
 - **Performance Optimized**: Static site generation with optimized images using Astro's Image component
 
 ## 🎨 Design Philosophy

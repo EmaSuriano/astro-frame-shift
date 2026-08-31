@@ -1,6 +1,7 @@
 ---
 import { ClientRouter } from 'astro:transitions';
 import ThemeToggle from '../components/ThemeToggle.astro';
+import PhotoSwipeInit from '../components/PhotoSwipeInit.astro';
 import '../styles/global.css';
 import path from 'path';
 
@@ -94,5 +95,6 @@ const { BASE_URL } = import.meta.env;
         </p>
       </div>
     </footer>
+    <PhotoSwipeInit />
   </body>
 </html>

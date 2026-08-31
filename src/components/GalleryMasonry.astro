@@ -20,14 +20,23 @@ const { images } = Astro.props;
 const { BASE_URL } = import.meta.env;
 ---
 
-<div class="masonry-container columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-6 space-y-6">
+<div class="pswp-gallery masonry-container columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-6 space-y-6">
   {
-    images.map((image) => (
+    images.map((image) => {
+      const detailUrl = path.join(BASE_URL, 'image', image.id);
+      return (
       <div class="masonry-item break-inside-avoid mb-6">
         <a
-          href={path.join(BASE_URL, 'image', image.id)}
-          class="group block overflow-hidden rounded-lg transition-all duration-300 relative"
+          href={detailUrl}
+          class="pswp-item group block overflow-hidden rounded-lg transition-all duration-300 relative cursor-zoom-in"
           transition:name={`image-${image.id}`}
+          data-pswp-src={image.src}
+          data-pswp-width="1600"
+          data-pswp-height="1200"
+          data-pswp-cropped="true"
+          data-caption-title={image.title}
+          data-caption-categories={formatCategories(image)}
+          data-caption-url={detailUrl}
         >
           <div class="overflow-hidden relative">
             <Image
@@ -48,6 +57,7 @@ const { BASE_URL } = import.meta.env;
           </div>
         </a>
       </div>
-    ))
+      );
+    })
   }
 </div>
