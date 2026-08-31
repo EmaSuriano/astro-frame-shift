@@ -1,3 +1,54 @@
 @import "tailwindcss";
 
 @custom-variant dark (&:where(.dark, .dark *));
+
+/* PhotoSwipe: match the gallery's dark slate background; default icons already work on dark. */
+.pswp {
+  --pswp-bg: #0f172a;
+}
+
+.pswp__custom-caption {
+  position: absolute;
+  left: 50%;
+  bottom: 16px;
+  transform: translateX(-50%);
+  z-index: 10;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.85rem;
+  align-items: baseline;
+  justify-content: center;
+  width: calc(100% - 32px);
+  max-width: 42rem;
+  padding: 0.55rem 1rem;
+  border-radius: 0.5rem;
+  background: rgba(15, 23, 42, 0.82);
+  color: #f5f5f4;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  text-align: center;
+  pointer-events: auto;
+}
+
+.pswp__custom-caption:empty {
+  display: none;
+}
+
+.pswp__custom-caption .pswp-caption-title {
+  font-weight: 500;
+}
+
+.pswp__custom-caption .pswp-caption-cats {
+  font-weight: 300;
+  opacity: 0.85;
+}
+
+.pswp__custom-caption .pswp-caption-link {
+  color: #e7e5e4;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.pswp__custom-caption .pswp-caption-link:hover {
+  color: #ffffff;
+}

@@ -1,0 +1,73 @@
+---
+import { Image } from 'astro:assets';
+import path from 'path';
+import { formatCategories } from '../utils/categories';
+import { lightboxSrc } from '../utils/lightbox';
+
+interface ImageLike {
+  id: string;
+  src: string;
+  alt: string;
+  title: string;
+  categories?: string[];
+  category?: string;
+}
+
+interface Props {
+  image: ImageLike;
+  loading?: 'eager' | 'lazy';
+  rounded?: string;
+  overlayClass?: string;
+}
+
+const {
+  image,
+  loading = 'lazy',
+  rounded = 'rounded-lg',
+  overlayClass = 'bg-slate-900 opacity-0 group-hover:opacity-50',
+} = Astro.props;
+
+const { BASE_URL } = import.meta.env;
+const detailUrl = path.join(BASE_URL, 'image', image.id);
+const largeSrc = lightboxSrc(image.src);
+---
+
+<a
+  href={largeSrc}
+  class:list={[
+    'pswp-item group block overflow-hidden transition-all duration-300 relative',
+    rounded,
+  ]}
+  data-pswp-width="1600"
+  data-pswp-height="1067"
+  data-detail-url={detailUrl}
+  data-caption-title={image.title}
+  data-caption-categories={formatCategories(image)}
+  transition:name={`image-${image.id}`}
+>
+  <div class="overflow-hidden relative">
+    <Image
+      src={image.src}
+      alt={image.alt}
+      width="800"
+      height="800"
+      loading={loading}
+      class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-102"
+    />
+    <div
+      class:list={[
+        'absolute inset-0 transition-opacity duration-300 flex items-center justify-center pointer-events-none',
+        overlayClass,
+      ]}
+    >
+      <div
+        class="text-stone-100 text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-4"
+      >
+        <h3 class="text-lg font-medium mb-1">{image.title}</h3>
+        <p class="text-sm font-light tracking-wide opacity-90">
+          {formatCategories(image)}
+        </p>
+      </div>
+    </div>
+  </div>
+</a>

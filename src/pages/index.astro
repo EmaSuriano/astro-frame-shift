@@ -1,11 +1,8 @@
 ---
 import { getCollection } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
-import { Image } from 'astro:assets';
-import path from 'path';
-import { categoriesOf, formatCategories } from '../utils/categories';
-
-const { BASE_URL } = import.meta.env;
+import GalleryThumb from '../components/GalleryThumb.astro';
+import { categoriesOf } from '../utils/categories';
 
 const collection = await getCollection('gallery');
 const images = collection.map((a) => ({ ...a.data, id: a.id }));
@@ -47,6 +44,7 @@ const allCategories = [
     </div>
 
     <div
+      id="gallery-grid"
       class="masonry-container columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-6 space-y-6"
     >
       {
@@ -55,29 +53,7 @@ const allCategories = [
             class="masonry-item break-inside-avoid mb-6"
             data-categories={categoriesOf(image).join(',')}
           >
-            <a
-              href={path.join(BASE_URL, 'image', image.id)}
-              class="group block overflow-hidden rounded-lg transition-all duration-300 relative"
-              transition:name={`image-${image.id}`}
-            >
-              <div class="overflow-hidden relative">
-                <Image
-                  src={image.src}
-                  alt={image.alt}
-                  width="800"
-                  height="800"
-                  class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-102"
-                />
-                <div class="absolute inset-0 bg-slate-900 opacity-0 group-hover:opacity-50 transition-opacity duration-300 flex items-center justify-center pointer-events-none">
-                  <div class="text-stone-100 text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-4">
-                    <h3 class="text-lg font-medium mb-1">{image.title}</h3>
-                    <p class="text-sm font-light tracking-wide opacity-90">
-                      {formatCategories(image)}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </a>
+            <GalleryThumb image={image} />
           </div>
         ))
       }
@@ -116,6 +92,7 @@ const allCategories = [
           const show = filter === 'all' || cats.includes(filter);
           item.classList.toggle('is-filtered-out', !show);
         });
+        document.dispatchEvent(new Event('gallery:filters-changed'));
       });
     });
   }

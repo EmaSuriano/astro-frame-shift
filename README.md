@@ -11,6 +11,7 @@ This theme is **Astro 7 ready**.
 - **Minimalist Design**: Clean, borderless interface with no shadows or visual clutter
 - **Dark/Light Theme**: Persistent theme switching with smooth transitions
 - **Responsive Masonry Layout**: CSS-based masonry layout that adapts to all screen sizes
+- **PhotoSwipe Lightbox**: Clicking a thumbnail opens [PhotoSwipe](https://photoswipe.com/) for zoom, swipe, and keyboard navigation. Captions include the title, categories, and a link to the existing detail page. Category filters limit the lightbox to currently visible images.
 - **Image Validation**: Build-time TypeScript script to verify all image URLs are working
 - **Smooth Transitions**: Astro View Transitions for seamless navigation between pages
 - **Hover Effects**: Image information appears only on hover for maximum minimalism
@@ -59,6 +60,7 @@ This gallery embraces ultra-minimalism:
 - **Photographer Attribution**: Credit with optional links to photographer profiles
 - **Related Images**: Images can have multiple categories; related images are ranked by tag overlap
 - **Responsive Images**: Optimized loading with Astro's Image component
+- **Lightbox**: PhotoSwipe v5 on the grid and detail pages; thumbnails stay in the masonry layout. The primary click opens the lightbox instead of navigating away. Detail pages remain available from the caption (and direct URLs).
 
 ## 🧞 Commands
 
@@ -121,5 +123,5 @@ The project uses Tailwind CSS with a stone/slate color palette:
 - **Static Site Generation**: Pre-rendered for maximum speed
 - **Image Optimization**: Automatic WebP conversion and responsive sizes
 - **View Transitions**: Smooth navigation without full page reloads
-- **Minimal JavaScript**: Theme persistence and hover effects only
+- **Minimal JavaScript**: Theme persistence, category filters, and PhotoSwipe lightbox
 - **CSS-Based Masonry**: No JavaScript dependencies for layout
