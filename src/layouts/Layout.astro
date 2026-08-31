@@ -90,25 +90,28 @@ const { BASE_URL } = import.meta.env;
         class="container mx-auto px-6 text-center text-stone-600 dark:text-gray-400 text-sm font-light"
       >
         <p>
-          &copy; {new Date().getFullYear()}
+          &copy; {new Date().getFullYear()}{' '}
           <a
             href="https://github.com/EmaSuriano"
             class="hover:text-stone-800 dark:hover:text-gray-200 transition-colors"
-            >Ema Suriano</a
           >
+            Ema Suriano
+          </a>
         </p>
         <p class="mt-2">
           <a
             href="https://github.com/EmaSuriano/astro-frame-shift"
             class="hover:text-stone-800 dark:hover:text-gray-200 transition-colors"
-            >Astro Frame Shift</a
           >
-          · Built with
+            Astro Frame Shift
+          </a>
+          {' · Built with '}
           <a
             href="https://astro.build"
             class="hover:text-stone-800 dark:hover:text-gray-200 transition-colors"
-            >Astro</a
           >
+            Astro
+          </a>
         </p>
       </div>
     </footer>
