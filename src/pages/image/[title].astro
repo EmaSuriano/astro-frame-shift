@@ -6,7 +6,7 @@ import GalleryThumb from '../../components/GalleryThumb.astro';
 import { getCollection } from 'astro:content';
 import { categoriesOf, formatCategories } from '../../utils/categories';
 import { lightboxSrc } from '../../utils/lightbox';
-import path from 'path';
+import { baseUrl, imageUrl } from '../../utils/paths';
 
 export async function getStaticPaths() {
   const RELATED_LIMIT = 8;
@@ -38,16 +38,15 @@ export async function getStaticPaths() {
 }
 
 const { image, related } = Astro.props;
-const { BASE_URL } = import.meta.env;
 const categoryLabel = formatCategories(image);
-const detailUrl = path.join(BASE_URL, 'image', image.id);
 const largeSrc = lightboxSrc(image.src);
+const detailUrl = imageUrl(image.id);
 ---
 
 <Layout title={`${image.title} | Image Gallery`}>
-  <main class="container mx-auto px-6 py-16" id="detail-gallery">
+  <main class="container mx-auto px-6 py-16">
     <a
-      href={BASE_URL}
+      href={baseUrl()}
       class="inline-flex items-center mb-12 text-stone-600 dark:text-slate-400 hover:text-stone-900 dark:hover:text-stone-200 transition-colors duration-300 font-light"
     >
       <svg
@@ -67,16 +66,17 @@ const largeSrc = lightboxSrc(image.src);
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
       <!-- Large Image taking 2/3 of the space -->
       <div
+        id="detail-gallery"
         class="lg:col-span-2 overflow-hidden rounded-lg max-h-[85vh] flex items-center justify-center bg-transparent"
       >
         <a
           href={largeSrc}
-          class="pswp-item block max-h-[85vh] max-w-full cursor-zoom-in"
+          class="pswp-item cursor-zoom-in flex items-center justify-center max-h-[85vh] max-w-full"
           data-pswp-width="1600"
           data-pswp-height="1067"
-          data-detail-url={detailUrl}
           data-caption-title={image.title}
           data-caption-categories={categoryLabel}
+          data-detail-url={detailUrl}
           transition:name={`image-${image.id}`}
         >
           <Image
@@ -168,7 +168,10 @@ const largeSrc = lightboxSrc(image.src);
           <h2 class="text-2xl font-light tracking-wide mb-8 text-stone-900 dark:text-stone-100">
             Related Images
           </h2>
-          <div class="masonry-container columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-6 space-y-6">
+          <div
+            id="gallery-grid"
+            class="masonry-container columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-6 space-y-6"
+          >
             {related.map((relatedImage, i) => (
               <div class="masonry-item break-inside-avoid mb-6">
                 <GalleryThumb

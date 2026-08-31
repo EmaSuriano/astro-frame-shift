@@ -1,8 +1,8 @@
 ---
 import { Image } from 'astro:assets';
-import path from 'path';
 import { formatCategories } from '../utils/categories';
 import { lightboxSrc } from '../utils/lightbox';
+import { imageUrl } from '../utils/paths';
 
 interface ImageLike {
   id: string;
@@ -27,15 +27,14 @@ const {
   overlayClass = 'bg-slate-900 opacity-0 group-hover:opacity-50',
 } = Astro.props;
 
-const { BASE_URL } = import.meta.env;
-const detailUrl = path.join(BASE_URL, 'image', image.id);
+const detailUrl = imageUrl(image.id);
 const largeSrc = lightboxSrc(image.src);
 ---
 
 <a
   href={largeSrc}
   class:list={[
-    'pswp-item group block overflow-hidden transition-all duration-300 relative',
+    'pswp-item group block overflow-hidden transition-all duration-300 relative cursor-zoom-in',
     rounded,
   ]}
   data-pswp-width="1600"

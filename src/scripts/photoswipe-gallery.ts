@@ -57,7 +57,7 @@ function captionHtml(el: HTMLElement | undefined): string {
 
 function bindCaption(lightbox: PhotoSwipeLightbox): void {
   lightbox.on('uiRegister', () => {
-    lightbox.pswp?.ui.registerElement({
+    lightbox.pswp?.ui?.registerElement({
       name: 'custom-caption',
       order: 9,
       isButton: false,
@@ -116,14 +116,10 @@ function createLightbox(gallery: string, children: string): void {
 export function setupPhotoSwipe(): void {
   destroyLightboxes();
   fillDimensions();
-  createLightbox(
-    '#gallery-grid',
-    '.masonry-item:not(.is-filtered-out) a.pswp-item',
-  );
+  createLightbox('#gallery-grid', 'a.pswp-item');
   createLightbox('#detail-gallery', 'a.pswp-item');
 }
 
 setupPhotoSwipe();
 document.addEventListener('astro:after-swap', setupPhotoSwipe);
 document.addEventListener('astro:before-swap', destroyLightboxes);
-document.addEventListener('gallery:filters-changed', setupPhotoSwipe);

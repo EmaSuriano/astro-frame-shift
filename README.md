@@ -11,7 +11,8 @@ This theme is **Astro 7 ready**.
 - **Minimalist Design**: Clean, borderless interface with no shadows or visual clutter
 - **Dark/Light Theme**: Persistent theme switching with smooth transitions
 - **Responsive Masonry Layout**: CSS-based masonry layout that adapts to all screen sizes
-- **PhotoSwipe Lightbox**: Clicking a thumbnail opens [PhotoSwipe](https://photoswipe.com/) for zoom, swipe, and keyboard navigation. Captions include the title, categories, and a link to the existing detail page. Category filters limit the lightbox to currently visible images.
+- **PhotoSwipe Lightbox**: Clicking a thumbnail opens [PhotoSwipe](https://photoswipe.com/) for zoom, swipe, and keyboard navigation. Captions include the title, categories, and a link to the existing detail page (`image/{id}`).
+- **Static Category Routes**: Tags are real pages (`/` and `/category/{slug}/`) so view transitions can morph images. Client-side `display: none` filters broke `transition:name`.
 - **Image Validation**: Build-time TypeScript script to verify all image URLs are working
 - **Smooth Transitions**: Astro View Transitions for seamless navigation between pages
 - **Hover Effects**: Image information appears only on hover for maximum minimalism
@@ -35,17 +36,22 @@ This gallery embraces ultra-minimalism:
 │   └── favicon.svg
 ├── src/
 │   ├── components/
+│   │   ├── GalleryThumb.astro         # Thumbnail that opens PhotoSwipe
+│   │   ├── ImageGallery.astro         # Shared grid + category chip links
 │   │   └── ThemeToggle.astro          # Dark/light theme toggle
-│   ├── content/
-│   │   └── config.ts                  # Content collection schema
+│   ├── content.config.ts              # Content collection schema
 │   ├── data/
 │   │   └── gallery.json               # 60+ curated images with metadata
 │   ├── layouts/
 │   │   └── Layout.astro               # Main layout with theme persistence
 │   ├── pages/
-│   │   ├── index.astro                # Gallery grid page
+│   │   ├── index.astro                # Gallery grid (all images)
+│   │   ├── category/
+│   │   │   └── [category].astro       # One static page per category tag
 │   │   └── image/
-│   │       └── [id].astro             # Individual image detail page
+│   │       └── [title].astro          # Individual image detail page
+│   ├── scripts/
+│   │   └── photoswipe-gallery.ts      # PhotoSwipe lightbox (rebinds after view transitions)
 │   └── styles/
 │       └── global.css                 # Global styles
 ├── scripts/
@@ -56,11 +62,11 @@ This gallery embraces ultra-minimalism:
 ## 🖼️ Gallery Features
 
 - **60+ Images**: Diverse collection spanning multiple categories
-- **Category Organization**: Architecture, Nature, Street Photography, Portraits, and more
+- **Category Organization**: Architecture, Nature, Street, Portraits, and more — each tag is its own static route so filtering keeps view transitions working
 - **Photographer Attribution**: Credit with optional links to photographer profiles
 - **Related Images**: Images can have multiple categories; related images are ranked by tag overlap
 - **Responsive Images**: Optimized loading with Astro's Image component
-- **Lightbox**: PhotoSwipe v5 on the grid and detail pages; thumbnails stay in the masonry layout. The primary click opens the lightbox instead of navigating away. Detail pages remain available from the caption (and direct URLs).
+- **Lightbox**: PhotoSwipe v5 on the grid and detail pages. The primary click opens the lightbox instead of navigating away. Detail pages remain available from the caption (and direct URLs). PhotoSwipe on a category page only includes that page's images.
 
 ## 🧞 Commands
 
@@ -75,6 +81,18 @@ All commands are run from the root of the project, from a terminal:
 | `yarn check-images`    | Validate all gallery image URLs                  |
 | `yarn astro ...`       | Run CLI commands like `astro add`, `astro check` |
 | `yarn astro -- --help` | Get help using the Astro CLI                     |
+
+## 🗂️ Category routes and lightbox
+
+Category tags are **real static pages**, not query parameters or client-side hide/show. This site is SSG on GitHub Pages, and hiding masonry items with `display: none` broke `transition:name` morphs between the gallery and detail views.
+
+| Route | Content |
+| :---- | :------ |
+| `/` | All images |
+| `/category/{slug}/` | Images whose `categories` include that tag |
+| `/image/{id}` | Detail page (large image also opens PhotoSwipe) |
+
+Filter chips are links: **All** goes to the gallery root (`BASE_URL`), each tag goes to `BASE_URL/category/{slug}/`, and the current page gets `is-active`.
 
 ## 🛠️ Development
 
@@ -123,5 +141,5 @@ The project uses Tailwind CSS with a stone/slate color palette:
 - **Static Site Generation**: Pre-rendered for maximum speed
 - **Image Optimization**: Automatic WebP conversion and responsive sizes
 - **View Transitions**: Smooth navigation without full page reloads
-- **Minimal JavaScript**: Theme persistence, category filters, and PhotoSwipe lightbox
+- **Minimal JavaScript**: Theme persistence and PhotoSwipe lightbox
 - **CSS-Based Masonry**: No JavaScript dependencies for layout

@@ -1,0 +1,78 @@
+---
+import GalleryThumb from './GalleryThumb.astro';
+import { slugify } from '../utils/slug';
+import { baseUrl, categoryUrl } from '../utils/paths';
+
+interface ImageLike {
+  id: string;
+  src: string;
+  alt: string;
+  title: string;
+  categories?: string[];
+  category?: string;
+}
+
+interface Props {
+  images: ImageLike[];
+  allCategories: string[];
+  activeCategory?: string | null;
+}
+
+const { images, allCategories, activeCategory = null } = Astro.props;
+const chipClass =
+  'category-chip px-3 py-1 text-sm font-light tracking-wide rounded-full border border-stone-300 dark:border-slate-600 text-stone-600 dark:text-slate-400 hover:text-stone-900 dark:hover:text-stone-200 transition-colors duration-300';
+---
+
+<main class="container mx-auto px-6 py-16">
+  <h1
+    class="text-5xl font-light tracking-wide mb-8 text-stone-900 dark:text-stone-100"
+  >
+    Gallery
+  </h1>
+
+  <nav
+    id="category-filters"
+    class="flex flex-wrap gap-2 mb-12"
+    aria-label="Filter by category"
+  >
+    <a href={baseUrl()} class:list={[chipClass, { 'is-active': !activeCategory }]}>
+      All
+    </a>
+    {
+      allCategories.map((category) => (
+        <a
+          href={categoryUrl(slugify(category))}
+          class:list={[chipClass, { 'is-active': activeCategory === category }]}
+        >
+          {category}
+        </a>
+      ))
+    }
+  </nav>
+
+  <div
+    id="gallery-grid"
+    class="masonry-container columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-6 space-y-6"
+  >
+    {
+      images.map((image) => (
+        <div class="masonry-item break-inside-avoid mb-6">
+          <GalleryThumb image={image} />
+        </div>
+      ))
+    }
+  </div>
+</main>
+
+<style>
+  .category-chip.is-active {
+    background-color: #e7e5e4;
+    color: #1c1917;
+    border-color: #a8a29e;
+  }
+  :global(.dark) .category-chip.is-active {
+    background-color: #334155;
+    color: #f5f5f4;
+    border-color: #64748b;
+  }
+</style>

@@ -1,0 +1,49 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import ImageGallery from '../../components/ImageGallery.astro';
+import { categoriesOf } from '../../utils/categories';
+import { slugify } from '../../utils/slug';
+
+export async function getStaticPaths() {
+  const collection = await getCollection('gallery');
+  const images = collection.map((entry) => ({ ...entry.data, id: entry.id }));
+  const allCategories = [
+    ...new Set(images.flatMap((img) => categoriesOf(img))),
+  ].sort((a, b) => a.localeCompare(b));
+
+  return allCategories.map((category) => ({
+    params: { category: slugify(category) },
+    props: {
+      category,
+      images: images.filter((img) => categoriesOf(img).includes(category)),
+      allCategories,
+    },
+  }));
+}
+
+interface ImageLike {
+  id: string;
+  src: string;
+  alt: string;
+  title: string;
+  categories?: string[];
+  category?: string;
+}
+
+interface Props {
+  category: string;
+  images: ImageLike[];
+  allCategories: string[];
+}
+
+const { category, images, allCategories } = Astro.props;
+---
+
+<Layout title={`${category} | Image Gallery`}>
+  <ImageGallery
+    images={images}
+    allCategories={allCategories}
+    activeCategory={category}
+  />
+</Layout>
