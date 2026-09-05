@@ -49,7 +49,7 @@ const largeSrc = largeUrl.toString();
 ---
 
 <Layout title={`${image.title} | Image Gallery`}>
-  <main class="container mx-auto px-6 py-16">
+  <div class="container mx-auto px-6 py-16">
     <a
       href={BASE_URL}
       class="inline-flex items-center mb-12 text-stone-600 dark:text-slate-400 hover:text-stone-900 dark:hover:text-stone-200 transition-colors duration-300 font-light"
@@ -200,7 +200,7 @@ const largeSrc = largeUrl.toString();
         </div>
       )
     }
-  </main>
+  </div>
 </Layout>
 
 <div id="image-zoom" popover class="zoom-popover">
