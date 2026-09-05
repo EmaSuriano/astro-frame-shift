@@ -6,12 +6,13 @@ This theme is **Astro 7 ready**.
 
 ## Screenshots 📸
 
-Captured from the [live demo](https://emasuriano.github.io/astro-frame-shift/) with [shot-scraper](https://github.com/simonw/shot-scraper) via [`shots.yml`](shots.yml) (workflow: [`.github/workflows/screenshots.yml`](.github/workflows/screenshots.yml)). Light and dark for Home and Category.
+Captured from the [live demo](https://emasuriano.github.io/astro-frame-shift/) with [shot-scraper](https://github.com/simonw/shot-scraper) via [`shots.yml`](shots.yml) (workflow: [`.github/workflows/screenshots.yml`](.github/workflows/screenshots.yml)). Light and dark for Home, Category, and Image detail.
 
 | Light | Dark |
 | ----- | ---- |
 | ![Home - Light](screenshots/home-light.png) | ![Home - Dark](screenshots/home-dark.png) |
 | ![Category - Light](screenshots/category-light.png) | ![Category - Dark](screenshots/category-dark.png) |
+| ![Image - Light](screenshots/image-light.png) | ![Image - Dark](screenshots/image-dark.png) |
 
 ## ✨ Features
 
