@@ -52,7 +52,7 @@ const largeSrc = largeUrl.toString();
   <div class="container mx-auto px-6 py-16">
     <a
       href={BASE_URL}
-      class="inline-flex items-center mb-12 text-stone-600 dark:text-slate-400 hover:text-stone-900 dark:hover:text-stone-200 transition-colors duration-300 font-light"
+      class="inline-flex items-center mb-12 text-muted hover:text-ink transition-colors duration-300 font-light"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -92,20 +92,20 @@ const largeSrc = largeUrl.toString();
 
       <div class="lg:col-span-1 py-4 lg:sticky lg:top-8">
         <h1
-          class="text-3xl font-light tracking-wide mb-2 text-stone-900 dark:text-stone-100"
+          class="text-3xl font-light tracking-wide mb-2 text-ink"
         >
           {image.title}
         </h1>
 
         <h2
-          class="text-lg font-light mb-8 text-stone-600 dark:text-slate-300 tracking-wide"
+          class="text-lg font-light mb-8 text-muted tracking-wide"
         >
           {categoryLabel}
         </h2>
 
         <div class="mb-8">
           <p
-            class="text-stone-700 dark:text-gray-200 leading-relaxed font-light"
+            class="text-ink leading-relaxed font-light"
           >
             {image.description}
           </p>
@@ -113,19 +113,19 @@ const largeSrc = largeUrl.toString();
 
         <div class="space-y-4 text-sm">
           <div class="flex">
-            <span class="font-medium w-28 text-stone-600 dark:text-slate-400"
+            <span class="font-medium w-28 text-muted"
               >Categories:</span
             >
-            <span class="text-stone-700 dark:text-slate-300 font-light"
+            <span class="text-ink/80 font-light"
               >{categoryLabel}</span
             >
           </div>
 
           <div class="flex">
-            <span class="font-medium w-28 text-stone-600 dark:text-slate-400"
+            <span class="font-medium w-28 text-muted"
               >Date:</span
             >
-            <span class="text-stone-700 dark:text-slate-300 font-light"
+            <span class="text-ink/80 font-light"
               >{
                 new Date(image.date).toLocaleDateString('en-US', {
                   year: 'numeric',
@@ -137,7 +137,7 @@ const largeSrc = largeUrl.toString();
           </div>
 
           <div class="flex">
-            <span class="font-medium w-28 text-stone-600 dark:text-slate-400"
+            <span class="font-medium w-28 text-muted"
               >Photo by:</span
             >
             {
@@ -146,12 +146,12 @@ const largeSrc = largeUrl.toString();
                   href={image.photographerLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="text-stone-700 dark:text-slate-300 hover:text-stone-900 dark:hover:text-stone-100 transition-colors duration-300 font-light"
+                  class="text-ink/80 hover:text-ink transition-colors duration-300 font-light"
                 >
                   {image.photographer}
                 </a>
               ) : (
-                <span class="text-stone-700 dark:text-slate-300 font-light">
+                <span class="text-ink/80 font-light">
                   {image.photographer}
                 </span>
               )
@@ -164,7 +164,7 @@ const largeSrc = largeUrl.toString();
     {
       related.length > 0 && (
         <div class="mt-16">
-          <h2 class="text-2xl font-light tracking-wide mb-8 text-stone-900 dark:text-stone-100">
+          <h2 class="text-2xl font-light tracking-wide mb-8 text-ink">
             Related Images
           </h2>
           <div class="masonry-container columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-6 space-y-6">
