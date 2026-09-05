@@ -42,7 +42,7 @@ const { BASE_URL } = import.meta.env;
             />
             {/* Always-visible caption for touch + keyboard; hover only deepens the scrim */}
             <div
-              class="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-stone-950/70 via-stone-950/25 to-transparent px-3 pb-3 pt-10 transition-opacity duration-300 group-hover:from-stone-950/80 group-focus-within:from-stone-950/80"
+              class="gallery-caption pointer-events-none absolute inset-x-0 bottom-0 px-3 pb-3 pt-10"
             >
               <h3 class="text-sm font-medium text-stone-50 md:text-base">
                 {image.title}
@@ -57,3 +57,13 @@ const { BASE_URL } = import.meta.env;
     ))
   }
 </div>
+
+<style>
+  .gallery-caption {
+    background: linear-gradient(
+      to top,
+      var(--color-overlay, oklch(18% 0.02 65 / 0.7)) 0%,
+      transparent 100%
+    );
+  }
+</style>
