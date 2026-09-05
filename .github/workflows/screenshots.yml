@@ -16,36 +16,34 @@ permissions:
   contents: write
 
 jobs:
-  shot-scraper:
-    runs-on: ubuntu-latest
+  capture:
     if: ${{ github.event_name == 'workflow_dispatch' || github.actor != 'github-actions[bot]' }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        theme: [light, dark]
     steps:
       - uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
+      - uses: actions/setup-python@v5
         with:
           python-version: '3.13'
 
-      - name: Configure pip caching
-        uses: actions/cache@v4
+      - uses: actions/cache@v4
         with:
           path: ~/.cache/pip
           key: ${{ runner.os }}-pip-${{ hashFiles('requirements.txt') }}
           restore-keys: |
             ${{ runner.os }}-pip-
 
-      - name: Cache Playwright browsers
-        uses: actions/cache@v4
+      - uses: actions/cache@v4
         with:
           path: ~/.cache/ms-playwright/
-          key: ${{ runner.os }}-browsers
+          key: ${{ runner.os }}-browsers-${{ matrix.theme }}
 
-      - name: Install dependencies
-        run: pip install -r requirements.txt
-
-      - name: Install Playwright browsers
-        run: shot-scraper install
+      - run: pip install -r requirements.txt
+      - run: shot-scraper install
 
       - name: Wait for live site
         env:
@@ -62,11 +60,35 @@ jobs:
             echo "waiting ($i) status=$code"
             sleep 15
           done
-          echo "site not ready"
           exit 1
 
-      - name: Take screenshots
-        run: shot-scraper multi shots.yml
+      - name: Take ${{ matrix.theme }} screenshots
+        run: shot-scraper multi shots-${{ matrix.theme }}.yml
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: screenshots-${{ matrix.theme }}
+          path: screenshots/*-${{ matrix.theme }}.png
+          if-no-files-found: error
+
+  commit:
+    needs: capture
+    runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'workflow_dispatch' || github.actor != 'github-actions[bot]' }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/download-artifact@v4
+        with:
+          path: artifacts
+          pattern: screenshots-*
+          merge-multiple: true
+
+      - name: Install downloaded screenshots
+        run: |
+          mkdir -p screenshots
+          cp -f artifacts/*.png screenshots/ || cp -f artifacts/**/*.png screenshots/
+          ls -la screenshots/
 
       - name: Commit if changed
         run: |
