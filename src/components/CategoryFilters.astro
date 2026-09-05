@@ -17,6 +17,7 @@ const chipClass =
   <a
     href={BASE_URL}
     class:list={[chipClass, { 'is-active': active === 'all' }]}
+    aria-current={active === 'all' ? 'page' : undefined}
   >
     All
   </a>
@@ -27,6 +28,7 @@ const chipClass =
         <a
           href={path.join(BASE_URL, 'category', slug)}
           class:list={[chipClass, { 'is-active': active === slug }]}
+          aria-current={active === slug ? 'page' : undefined}
         >
           {category}
         </a>
