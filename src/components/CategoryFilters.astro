@@ -10,10 +10,10 @@ interface Props {
 const { categories, active } = Astro.props;
 const { BASE_URL } = import.meta.env;
 const chipClass =
-  'category-chip px-3 py-1 text-sm font-light tracking-wide rounded-full border border-stone-300 dark:border-slate-600 text-stone-600 dark:text-slate-400 hover:text-stone-900 dark:hover:text-stone-200 transition-colors duration-300';
+  'category-chip rounded-full border border-rule px-3 py-1 text-sm font-light tracking-wide text-muted transition-colors duration-300 hover:text-ink';
 ---
 
-<nav id="category-filters" class="flex flex-wrap gap-2 mb-12" aria-label="Filter by category">
+<nav id="category-filters" class="mb-12 flex flex-wrap gap-2" aria-label="Filter by category">
   <a
     href={BASE_URL}
     class:list={[chipClass, { 'is-active': active === 'all' }]}
@@ -39,13 +39,8 @@ const chipClass =
 
 <style>
   .category-chip.is-active {
-    background-color: #e7e5e4;
-    color: #1c1917;
-    border-color: #a8a29e;
-  }
-  :global(.dark) .category-chip.is-active {
-    background-color: #334155;
-    color: #f5f5f4;
-    border-color: #64748b;
+    background-color: transparent;
+    color: var(--color-accent);
+    border-color: var(--color-accent);
   }
 </style>
