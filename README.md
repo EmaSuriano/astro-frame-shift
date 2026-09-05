@@ -4,7 +4,14 @@ A clean, minimalist photo gallery built with Astro featuring smooth transitions,
 
 This theme is **Astro 7 ready**.
 
-![Demo](https://github.com/user-attachments/assets/722dc92e-151a-454b-be75-90974536c7f5)
+## Screenshots 📸
+
+Captured from the [live demo](https://emasuriano.github.io/astro-frame-shift/) with [shot-scraper](https://github.com/simonw/shot-scraper) via [`shots.yml`](shots.yml) (workflow: [`.github/workflows/screenshots.yml`](.github/workflows/screenshots.yml)). Light and dark for Home and Category.
+
+| Light | Dark |
+| ----- | ---- |
+| ![Home - Light](screenshots/home-light.png) | ![Home - Dark](screenshots/home-dark.png) |
+| ![Category - Light](screenshots/category-light.png) | ![Category - Dark](screenshots/category-dark.png) |
 
 ## ✨ Features
 
