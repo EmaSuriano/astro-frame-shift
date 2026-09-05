@@ -5,10 +5,6 @@ export default {
   darkMode: "class", // Enable class-based dark mode
   theme: {
     extend: {
-      fontFamily: {
-        'inter': ['Inter', 'system-ui', 'sans-serif'],
-        'mono': ['JetBrains Mono', 'monospace'],
-      },
       transitionProperty: {
         colors:
           "color, background-color, border-color, text-decoration-color, fill, stroke",
