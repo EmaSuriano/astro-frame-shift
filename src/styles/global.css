@@ -1,10 +1,57 @@
 @import "tailwindcss";
 
 @custom-variant dark (&:where(.dark, .dark *));
+@custom-variant light (&:where(.light, .light *));
 
 @theme {
-  --font-sans: "Source Sans 3", ui-sans-serif, system-ui, sans-serif;
   --font-display: "Instrument Serif", ui-serif, Georgia, serif;
+  --font-sans: "Geist", ui-sans-serif, system-ui, sans-serif;
+  --text-display: clamp(2.5rem, 4vw + 1rem, 3.75rem);
+
+  /* Dark-first midnight + soft violet */
+  --color-paper: oklch(15% 0.028 285);
+  --color-paper-2: oklch(19% 0.032 285);
+  --color-rule: oklch(32% 0.028 290);
+  --color-muted: oklch(72% 0.025 290);
+  --color-ink: oklch(95% 0.012 295);
+  --color-accent: oklch(72% 0.12 300);
+  --color-focus: oklch(74% 0.13 300);
+  --color-on-accent: oklch(16% 0.03 285);
+  --color-overlay: oklch(8% 0.03 285 / 0.55);
+}
+
+.dark,
+:root:not(.dark):not(.light) {
+  --color-paper: oklch(15% 0.028 285);
+  --color-paper-2: oklch(19% 0.032 285);
+  --color-rule: oklch(32% 0.028 290);
+  --color-muted: oklch(72% 0.025 290);
+  --color-ink: oklch(95% 0.012 295);
+  --color-accent: oklch(72% 0.12 300);
+  --color-focus: oklch(74% 0.13 300);
+  --color-on-accent: oklch(16% 0.03 285);
+  --color-overlay: oklch(8% 0.03 285 / 0.55);
+}
+
+.light {
+  --color-paper: oklch(97% 0.012 295);
+  --color-paper-2: oklch(94% 0.016 295);
+  --color-rule: oklch(86% 0.014 290);
+  --color-muted: oklch(48% 0.03 290);
+  --color-ink: oklch(22% 0.035 285);
+  --color-accent: oklch(52% 0.14 300);
+  --color-focus: oklch(50% 0.15 300);
+  --color-on-accent: oklch(97% 0.01 295);
+  --color-overlay: oklch(20% 0.04 285 / 0.42);
+}
+
+:root {
+  color-scheme: dark light;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
 }
 
 html:has(#image-zoom:popover-open),
