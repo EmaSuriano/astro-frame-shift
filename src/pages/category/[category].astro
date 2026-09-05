@@ -29,7 +29,7 @@ const { category, images, allCategories } = Astro.props;
 ---
 
 <Layout title={`${category} | Image Gallery`}>
-  <main class="container mx-auto px-6 py-16">
+  <div class="container mx-auto px-6 py-16">
     <h1
       class="font-display text-5xl font-normal tracking-wide mb-8 text-stone-900 dark:text-stone-100"
     >
@@ -38,5 +38,5 @@ const { category, images, allCategories } = Astro.props;
 
     <CategoryFilters categories={allCategories} active={slugify(category)} />
     <GalleryMasonry images={images} />
-  </main>
+  </div>
 </Layout>
